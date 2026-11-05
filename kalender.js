@@ -7,7 +7,7 @@
     oph: { name: "Utbildningsstyrelsen: Skolornas arbetstider och lov 2026–2027", url: "https://www.oph.fi/sv/nyheter/2026/skolornas-arbetstider-och-lov-lasaret-2026-2027" },
     finno: { name: "Finno skola, espoo.fi", url: "https://www.espoo.fi/sv/fostran-och-utbildning/grundlaggande-utbildning/grundskolor/finno-skola" },
     matt: { name: "Mattlidens skola, espoo.fi", url: "https://www.espoo.fi/sv/fostran-och-utbildning/grundlaggande-utbildning/grundskolor/mattlidens-skola" },
-    helg: { name: "Allmän helgdag i Finland (beräknad, ej ur skolans källa)", url: "" },
+    bof: { name: "Finlands Bank: Bankfria dagar i Finland", url: "https://www.suomenpankki.fi/sv/pengar-och-betalningar/bankfria-dagar-i-finland/" },
   };
 
   // type: termin | lov | ledig | skoldag | helgdag
@@ -20,23 +20,40 @@
     { id: "2627-jullov", year: "2026–2027", type: "lov", title: "Jullov", start: "2026-12-23", end: "2027-01-06", src: ["svr", "esbo"] },
     { id: "2627-vtstart", year: "2026–2027", type: "termin", title: "Vårterminen börjar", start: "2027-01-07", src: ["svr", "esbo"] },
     { id: "2627-sportlov", year: "2026–2027", type: "lov", title: "Sportlov (v. 8)", start: "2027-02-22", end: "2027-02-26", src: ["svr", "esbo"] },
-    { id: "2627-pask", year: "2026–2027", type: "helgdag", title: "Påsk: långfredag – annandag påsk", start: "2027-03-26", end: "2027-03-29", src: ["helg"] },
-    { id: "2627-himmelsf", year: "2026–2027", type: "helgdag", title: "Kristi himmelsfärdsdag", start: "2027-05-06", src: ["oph"] },
     { id: "2627-slut", year: "2026–2027", type: "termin", title: "Läsårets sista skoldag (lördag)", start: "2027-06-05", src: ["svr", "esbo"] },
     { id: "2627-sommarlov", year: "2026–2027", type: "lov", title: "Sommarlov", start: "2027-06-06", end: "2027-08-10", src: ["svr"], note: "Härlett: dagen efter läsårets slut till dagen före skolstart 11.8.2027." },
     // 2027–2028
     { id: "2728-start", year: "2027–2028", type: "termin", title: "Skolstart, höstterminen börjar", start: "2027-08-11", src: ["svr", "esbo"] },
     { id: "2728-hostlov", year: "2027–2028", type: "lov", title: "Höstlov (v. 42)", start: "2027-10-18", end: "2027-10-22", src: ["svr", "esbo"] },
-    { id: "2728-sjalvst", year: "2027–2028", type: "helgdag", title: "Självständighetsdagen", start: "2027-12-06", src: ["helg"] },
     { id: "2728-htslut", year: "2027–2028", type: "termin", title: "Höstterminens sista skoldag", start: "2027-12-22", src: ["svr", "esbo"] },
     { id: "2728-jullov", year: "2027–2028", type: "lov", title: "Jullov", start: "2027-12-23", end: "2028-01-07", src: ["svr", "esbo"] },
     { id: "2728-vtstart", year: "2027–2028", type: "termin", title: "Vårterminen börjar", start: "2028-01-10", src: ["svr", "esbo"] },
     { id: "2728-sportlov", year: "2027–2028", type: "lov", title: "Sportlov (v. 8)", start: "2028-02-21", end: "2028-02-25", src: ["svr", "esbo"] },
-    { id: "2728-pask", year: "2027–2028", type: "helgdag", title: "Påsk: långfredag – annandag påsk", start: "2028-04-14", end: "2028-04-17", src: ["helg"] },
-    { id: "2728-forstamaj", year: "2027–2028", type: "helgdag", title: "Första maj", start: "2028-05-01", src: ["helg"] },
-    { id: "2728-himmelsf", year: "2027–2028", type: "helgdag", title: "Kristi himmelsfärdsdag", start: "2028-05-25", src: ["helg"] },
     { id: "2728-slut", year: "2027–2028", type: "termin", title: "Läsårets sista skoldag (lördag)", start: "2028-06-03", src: ["svr", "esbo"] },
   ];
+
+  // Finlands Banks bankfria dagar (nationella helgdagar då bankerna håller stängt), 2026–2028.
+  const BANK = [
+    ["Nyårsdagen", "2026-01-01", "2027-01-01", "2028-01-01"],
+    ["Trettondagen", "2026-01-06", "2027-01-06", "2028-01-06"],
+    ["Långfredagen", "2026-04-03", "2027-03-26", "2028-04-14"],
+    ["Annandag påsk", "2026-04-06", "2027-03-29", "2028-04-17"],
+    ["Första maj", "2026-05-01", "2027-05-01", "2028-05-01"],
+    ["Kristi himmelsfärdsdag", "2026-05-14", "2027-05-06", "2028-05-25"],
+    ["Midsommarafton", "2026-06-19", "2027-06-25", "2028-06-23"],
+    ["Självständighetsdagen", "2026-12-06", "2027-12-06", "2028-12-06"],
+    ["Julafton", "2026-12-24", "2027-12-24", "2028-12-24"],
+    ["Juldagen", "2026-12-25", "2027-12-25", "2028-12-25"],
+    ["Annandag jul", "2026-12-26", "2027-12-26", "2028-12-26"],
+  ];
+  const schoolYear = (iso) => { const y = +iso.slice(0, 4), m = +iso.slice(5, 7); const a = m >= 8 ? y : y - 1; return a + "–" + (a + 1); };
+  const HOLIDAYS = [];
+  BANK.forEach(([name, ...dates]) => dates.forEach((d) => HOLIDAYS.push({
+    id: "helg-" + d, year: schoolYear(d), type: "helgdag", title: name, start: d, src: ["bof"],
+  })));
+  HOLIDAYS.sort((a, b) => a.start.localeCompare(b.start));
+  // Helgdagarna ingår i skolkalendrarna för de läsår som täcks.
+  COMMON.push(...HOLIDAYS);
 
   const SCHOOLS = [
     {
@@ -184,6 +201,10 @@
     return icsFromEvents("Skollov Finno & Mattliden", "kombi-", combinedEvents(years, opts), opts);
   }
 
-  const api = { SRC, COMMON, SCHOOLS, TYPE_LABEL, eventsFor, combinedEvents, toICS, toICSCombined, addDays, YEARS: ["2026–2027", "2027–2028"] };
+  function toICSHolidays() {
+    return icsFromEvents("Helgdagar Finland (bankfria dagar)", "", HOLIDAYS, {});
+  }
+
+  const api = { SRC, BANK, HOLIDAYS, toICSHolidays, COMMON, SCHOOLS, TYPE_LABEL, eventsFor, combinedEvents, toICS, toICSCombined, addDays, YEARS: ["2026–2027", "2027–2028"] };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.Skolkalender = api;
 })(this);

@@ -5,8 +5,9 @@ const BASE = "https://hemosk.github.io/skolkalender-esbo/";
 
 fs.writeFileSync("skolkalender.ics", K.toICSCombined(K.YEARS));
 for (const s of K.SCHOOLS) fs.writeFileSync(s.key + ".ics", K.toICS(s.key, K.YEARS));
+fs.writeFileSync("helgdagar.ics", K.toICSHolidays());
 
-const feeds = [["Båda skolorna", "skolkalender.ics"]].concat(K.SCHOOLS.map((s) => [s.name, s.key + ".ics"]));
+const feeds = [["Båda skolorna", "skolkalender.ics"]].concat(K.SCHOOLS.map((s) => [s.name, s.key + ".ics"]), [["Bara helgdagar", "helgdagar.ics"]]);
 const exportHtml = `<section class="export" aria-labelledby="exp-h">
     <h2 id="exp-h">Prenumerera i Outlook</h2>
     <p>Outlook på webben: Kalender → Lägg till kalender → Prenumerera från webben, klistra in adressen. Outlook uppdaterar prenumerationen själv, men det kan ta upp till ett dygn.</p>
@@ -29,4 +30,4 @@ fs.writeFileSync("index.html", `<!doctype html>
 ${page}
 </body></html>
 `);
-console.log("Byggt:", ["skolkalender.ics"].concat(K.SCHOOLS.map((s) => s.key + ".ics"), "index.html").join(", "));
+console.log("Byggt:", ["skolkalender.ics", "helgdagar.ics"].concat(K.SCHOOLS.map((s) => s.key + ".ics"), "index.html").join(", "));
