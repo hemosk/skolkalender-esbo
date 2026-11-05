@@ -1,0 +1,326 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Skolkalender Esbo//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Finno skola – lov och arbetstider
+X-WR-TIMEZONE:Europe/Helsinki
+BEGIN:VEVENT
+UID:finno-2627-start@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20260813
+DTEND;VALUE=DATE:20260814
+SUMMARY:Finno: Skolstart\, höstterminen börjar
+DESCRIPTION:Skolstart kl. 8.30\, samling på skolgården\, till kl. 12.30.\
+ n\nKälla:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-sv.onclou
+ dos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider https://www
+ .espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-arbetslordag@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Finno: Arbetslördag
+DESCRIPTION:Ersätter den lediga dagen 7.5.2027.\n\nKälla:\nFinno skola\, 
+ espoo.fi https://www.espoo.fi/sv/fostran-och-utbildning/grundlaggande-utbi
+ ldning/grundskolor/finno-skola
+CATEGORIES:Extra skoldag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-hostlov@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261017
+SUMMARY:Finno: Höstlov (v. 42)
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Lov
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-htslut@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261223
+SUMMARY:Finno: Höstterminens sista skoldag
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-jullov@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20261223
+DTEND;VALUE=DATE:20270107
+SUMMARY:Finno: Jullov
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Lov
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-vtstart@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:Finno: Vårterminen börjar
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-sportlov@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270227
+SUMMARY:Finno: Sportlov (v. 8)
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Lov
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-pask@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270330
+SUMMARY:Finno: Påsk: långfredag – annandag påsk
+DESCRIPTION:Källa:\nAllmän helgdag i Finland (beräknad\, ej ur skolans k
+ älla)
+CATEGORIES:Helgdag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-himmelsf@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Finno: Kristi himmelsfärdsdag
+DESCRIPTION:Källa:\nUtbildningsstyrelsen: Skolornas arbetstider och lov 20
+ 26–2027 https://www.oph.fi/sv/nyheter/2026/skolornas-arbetstider-och-lov
+ -lasaret-2026-2027
+CATEGORIES:Helgdag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-ledig0507@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Finno: Ledig dag
+DESCRIPTION:Arbetas in lördag 26.9.2026.\n\nKälla:\nFinno skola\, espoo.f
+ i https://www.espoo.fi/sv/fostran-och-utbildning/grundlaggande-utbildning/
+ grundskolor/finno-skola
+CATEGORIES:Ledig dag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-slut@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Finno: Läsårets sista skoldag (lördag)
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2627-sommarlov@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270811
+SUMMARY:Finno: Sommarlov
+DESCRIPTION:Härlett: dagen efter läsårets slut till dagen före skolstar
+ t 11.8.2027.\n\nKälla:\nNämnden Svenska rum 30.10.2025 § 104 https://es
+ poo-sv.oncloudos.com/kokous/20251516-6.PDF
+CATEGORIES:Lov
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-start@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20270811
+DTEND;VALUE=DATE:20270812
+SUMMARY:Finno: Skolstart\, höstterminen börjar
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-hostlov@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20271018
+DTEND;VALUE=DATE:20271023
+SUMMARY:Finno: Höstlov (v. 42)
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Lov
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-sjalvst@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20271206
+DTEND;VALUE=DATE:20271207
+SUMMARY:Finno: Självständighetsdagen
+DESCRIPTION:Källa:\nAllmän helgdag i Finland (beräknad\, ej ur skolans k
+ älla)
+CATEGORIES:Helgdag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-htslut@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20271222
+DTEND;VALUE=DATE:20271223
+SUMMARY:Finno: Höstterminens sista skoldag
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-jullov@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20271223
+DTEND;VALUE=DATE:20280108
+SUMMARY:Finno: Jullov
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Lov
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-vtstart@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20280110
+DTEND;VALUE=DATE:20280111
+SUMMARY:Finno: Vårterminen börjar
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-sportlov@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20280221
+DTEND;VALUE=DATE:20280226
+SUMMARY:Finno: Sportlov (v. 8)
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Lov
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-pask@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20280414
+DTEND;VALUE=DATE:20280418
+SUMMARY:Finno: Påsk: långfredag – annandag påsk
+DESCRIPTION:Källa:\nAllmän helgdag i Finland (beräknad\, ej ur skolans k
+ älla)
+CATEGORIES:Helgdag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-forstamaj@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20280501
+DTEND;VALUE=DATE:20280502
+SUMMARY:Finno: Första maj
+DESCRIPTION:Källa:\nAllmän helgdag i Finland (beräknad\, ej ur skolans k
+ älla)
+CATEGORIES:Helgdag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-himmelsf@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20280525
+DTEND;VALUE=DATE:20280526
+SUMMARY:Finno: Kristi himmelsfärdsdag
+DESCRIPTION:Källa:\nAllmän helgdag i Finland (beräknad\, ej ur skolans k
+ älla)
+CATEGORIES:Helgdag
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finno-2728-slut@skolkalender-esbo
+DTSTAMP:20261105T085143Z
+DTSTART;VALUE=DATE:20280603
+DTEND;VALUE=DATE:20280604
+SUMMARY:Finno: Läsårets sista skoldag (lördag)
+DESCRIPTION:Källa:\nNämnden Svenska rum 30.10.2025 § 104 https://espoo-s
+ v.oncloudos.com/kokous/20251516-6.PDF\nEsbo stad: Arbets- och lovtider htt
+ ps://www.espoo.fi/sv/fostran-och-utbildning/arbets-och-lovtider
+CATEGORIES:Termin
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+END:VEVENT
+END:VCALENDAR

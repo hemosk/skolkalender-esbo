@@ -1,0 +1,230 @@
+<title>Skolkalender Esbo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ett verktyg i en kolumn — välj skola och läsår överst, sedan läsåret som en datumlista som läses uppifrån och ned. */
+:root {
+  --bg: #f6f7f9; --surface: #ffffff; --fg: #18222c; --muted: #5a6875; --line: #dde2e8;
+  --accent: #1d5d8c; --accent-fg: #ffffff; --accent-soft: #e3eef7;
+  --c-termin: #1d5d8c; --c-termin-bg: #e3eef7;
+  --c-lov: #8a5a00; --c-lov-bg: #fbf0d9;
+  --c-ledig: #8a5a00; --c-ledig-bg: #fbf0d9;
+  --c-skoldag: #2f6b3a; --c-skoldag-bg: #e2f1e4;
+  --c-helgdag: #8c3a4e; --c-helgdag-bg: #f6e4e8;
+  --warn: #9a4d00; --warn-bg: #fff3e0;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11171d; --surface: #182029; --fg: #e6ebf0; --muted: #98a6b3; --line: #2a3541;
+  --accent: #6eb0e3; --accent-fg: #0d1a25; --accent-soft: #1b2e3e;
+  --c-termin: #8cc2ec; --c-termin-bg: #1b2e3e;
+  --c-lov: #f0c264; --c-lov-bg: #3a2e14;
+  --c-ledig: #f0c264; --c-ledig-bg: #3a2e14;
+  --c-skoldag: #8fd29b; --c-skoldag-bg: #1d3322;
+  --c-helgdag: #eba2b3; --c-helgdag-bg: #3a2229;
+  --warn: #f3b46a; --warn-bg: #3a2a16;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11171d; --surface: #182029; --fg: #e6ebf0; --muted: #98a6b3; --line: #2a3541;
+  --accent: #6eb0e3; --accent-fg: #0d1a25; --accent-soft: #1b2e3e;
+  --c-termin: #8cc2ec; --c-termin-bg: #1b2e3e;
+  --c-lov: #f0c264; --c-lov-bg: #3a2e14;
+  --c-ledig: #f0c264; --c-ledig-bg: #3a2e14;
+  --c-skoldag: #8fd29b; --c-skoldag-bg: #1d3322;
+  --c-helgdag: #eba2b3; --c-helgdag-bg: #3a2229;
+  --warn: #f3b46a; --warn-bg: #3a2a16;
+  color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 24px; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.1; margin: 0; text-wrap: balance; }
+.lede { color: var(--muted); margin: 6px 0 0; max-width: 62ch; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: flex-end; }
+.group { display: grid; gap: 6px; }
+.label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.seg button { font: inherit; font-weight: 500; border: 0; background: transparent; color: var(--fg); padding: 8px 14px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
+.checks { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.checks label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.next { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; padding: 14px 18px; border-radius: 10px; background: var(--accent-soft); }
+.next .days { font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+
+.year h2 { font-family: var(--f-display); font-weight: 600; font-size: 1.15rem; margin: 0 0 8px; }
+.list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 11.5rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.row.past { opacity: 0.55; }
+.date { font-family: var(--f-mono); font-size: 0.86rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
+.date small { display: block; color: var(--muted); font-size: 0.78rem; }
+.what { min-width: 0; display: grid; gap: 3px; }
+.what .t { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-weight: 600; }
+.chip { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; }
+.chip.termin { color: var(--c-termin); background: var(--c-termin-bg); }
+.chip.lov { color: var(--c-lov); background: var(--c-lov-bg); }
+.chip.ledig { color: var(--c-ledig); background: var(--c-ledig-bg); }
+.chip.skoldag { color: var(--c-skoldag); background: var(--c-skoldag-bg); }
+.chip.helgdag { color: var(--c-helgdag); background: var(--c-helgdag-bg); }
+.chip.verify { color: var(--warn); background: var(--warn-bg); }
+.note { color: var(--muted); font-size: 0.88rem; }
+.src { font-size: 0.8rem; color: var(--muted); }
+.src a { color: var(--accent); }
+.pending { font-size: 0.88rem; color: var(--muted); margin: 8px 0 0; }
+
+.export { display: grid; gap: 10px; padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.export h2 { font-family: var(--f-display); font-weight: 600; font-size: 1.1rem; margin: 0; }
+.export p { margin: 0; color: var(--muted); max-width: 66ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn { font: inherit; font-weight: 600; border-radius: 8px; padding: 9px 16px; cursor: pointer; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-fg); }
+.btn.ghost { background: transparent; color: var(--accent); }
+.status { font-size: 0.88rem; color: var(--muted); }
+textarea { width: 100%; box-sizing: border-box; min-height: 160px; font-family: var(--f-mono); font-size: 0.78rem; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+
+@media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Skolkalender Esbo</h1>
+    <p class="lede">Arbets- och lovtider för Finno skola och Mattlidens skola. Datumen kommer från nämnden Svenska rums beslut och skolornas egna sidor på espoo.fi.</p>
+  </header>
+
+  <section class="controls" aria-label="Val">
+    <div class="group">
+      <span class="label" id="lbl-school">Skola</span>
+      <div class="seg" role="group" aria-labelledby="lbl-school" id="school"></div>
+    </div>
+    <div class="group">
+      <span class="label">Läsår</span>
+      <div class="checks" id="years"></div>
+    </div>
+    <div class="group">
+      <span class="label">Visa</span>
+      <div class="checks"><label><input type="checkbox" id="helg" checked> Helgdagar</label></div>
+    </div>
+  </section>
+
+  <div class="next" id="next" hidden></div>
+  <div id="list"></div>
+
+  <!--EXPORT--><section class="export" aria-labelledby="exp-h">
+    <h2 id="exp-h">Till Outlook</h2>
+    <p>De färdiga .ics-filerna finns i chatten. Behöver du en annan kombination av läsår eller utan helgdagar: kopiera kalendern här, klistra in i en tom textfil och spara den med ändelsen .ics. Öppna sedan filen i Outlook.</p>
+    <div class="actions">
+      <button class="btn" id="copy" type="button">Kopiera .ics</button>
+      <button class="btn ghost" id="show" type="button" aria-expanded="false">Visa text</button>
+      <span class="status" id="status" role="status"></span>
+    </div>
+    <textarea id="ics" readonly hidden aria-label="iCalendar-text"></textarea>
+  </section><!--/EXPORT-->
+</div>
+
+<script>
+/*__KALENDER__*/
+</script>
+<script>
+(function () {
+  const K = window.Skolkalender;
+  const state = { school: "kombi", years: K.YEARS.slice(), helgdagar: true };
+  try { const s = JSON.parse(localStorage.getItem("skolkal") || "null"); if (s) Object.assign(state, s); } catch (e) {}
+  const save = () => { try { localStorage.setItem("skolkal", JSON.stringify(state)); } catch (e) {} };
+
+  const WD = ["sö", "må", "ti", "on", "to", "fr", "lö"];
+  const fmt = (iso) => { const d = new Date(iso + "T12:00:00"); return WD[d.getDay()] + " " + d.getDate() + "." + (d.getMonth() + 1) + "." + d.getFullYear(); };
+  const todayISO = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+  const days = (a, b) => Math.round((new Date(b + "T12:00:00") - new Date(a + "T12:00:00")) / 86400000);
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+
+  const schoolBox = document.getElementById("school");
+  [{ key: "kombi", name: "Båda skolorna" }].concat(K.SCHOOLS).forEach((s) => {
+    const b = el("button", null, s.name); b.type = "button"; b.dataset.key = s.key;
+    b.addEventListener("click", () => { state.school = s.key; render(); });
+    schoolBox.appendChild(b);
+  });
+  const yearBox = document.getElementById("years");
+  K.YEARS.forEach((y, i) => {
+    const l = el("label"); const c = el("input"); c.type = "checkbox"; c.id = "y" + i; c.value = y;
+    c.addEventListener("change", () => { state.years = K.YEARS.filter((yy, j) => document.getElementById("y" + j).checked); render(); });
+    l.append(c, document.createTextNode(" " + y)); yearBox.appendChild(l);
+  });
+  const helg = document.getElementById("helg");
+  helg.addEventListener("change", () => { state.helgdagar = helg.checked; render(); });
+
+  function render() {
+    save();
+    schoolBox.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.key === state.school)));
+    K.YEARS.forEach((y, i) => { document.getElementById("y" + i).checked = state.years.includes(y); });
+    helg.checked = state.helgdagar;
+    const kombi = state.school === "kombi";
+    const school = kombi ? { pending: "2027–2028: skolornas egna avvikelser (arbetslördag/ledig dag) är inte publicerade ännu." } : K.SCHOOLS.find((s) => s.key === state.school);
+    const evs = kombi ? K.combinedEvents(state.years, { helgdagar: state.helgdagar }) : K.eventsFor(state.school, state.years, { helgdagar: state.helgdagar });
+    const today = todayISO();
+
+    const next = document.getElementById("next");
+    const up = evs.find((e) => (e.type === "lov" || e.type === "ledig") && (e.end || e.start) >= today);
+    next.replaceChildren();
+    if (up) {
+      const ongoing = up.start <= today;
+      next.append(el("span", "label", ongoing ? "Pågår nu" : "Nästa lov"),
+        el("span", "days", ongoing ? up.title : days(today, up.start) + " dagar"),
+        el("span", null, ongoing ? "till och med " + fmt(up.end || up.start) : up.title + ", från " + fmt(up.start)));
+      next.hidden = false;
+    } else next.hidden = true;
+
+    const list = document.getElementById("list"); list.replaceChildren();
+    if (!evs.length) { list.appendChild(el("p", "pending", "Välj minst ett läsår.")); }
+    state.years.forEach((y) => {
+      const ye = evs.filter((e) => e.year === y); if (!ye.length) return;
+      const sec = el("section", "year"); sec.appendChild(el("h2", null, "Läsåret " + y));
+      const ul = el("ul", "list");
+      ye.forEach((e) => {
+        const li = el("li", "row" + ((e.end || e.start) < today ? " past" : ""));
+        const d = el("div", "date", e.end ? fmt(e.start) + " –" : fmt(e.start));
+        if (e.end) d.appendChild(el("small", null, fmt(e.end) + " · " + (days(e.start, e.end) + 1) + " dagar"));
+        const w = el("div", "what");
+        const t = el("div", "t", e.title); t.appendChild(el("span", "chip " + e.type, K.TYPE_LABEL[e.type]));
+        if (e.verify) t.appendChild(el("span", "chip verify", "Bekräfta i Wilma"));
+        w.appendChild(t);
+        if (e.note) w.appendChild(el("div", "note", e.note));
+        const src = el("div", "src", "Källa: ");
+        e.src.forEach((k, i) => {
+          const s = K.SRC[k]; if (i) src.append("; ");
+          if (s.url) { const a = el("a", null, s.name); a.href = s.url; a.target = "_blank"; a.rel = "noopener"; src.appendChild(a); }
+          else src.append(s.name);
+        });
+        w.appendChild(src);
+        li.append(d, w); ul.appendChild(li);
+      });
+      sec.appendChild(ul);
+      if (y === "2027–2028") sec.appendChild(el("p", "pending", school.pending));
+      list.appendChild(sec);
+    });
+    const icsEl = document.getElementById("ics");
+    if (icsEl) icsEl.value = !evs.length ? "" : kombi ? K.toICSCombined(state.years, { helgdagar: state.helgdagar }) : K.toICS(state.school, state.years, { helgdagar: state.helgdagar });
+    const st = document.getElementById("status"); if (st) st.textContent = "";
+  }
+
+  const ta = document.getElementById("ics");
+  if (ta) {
+  const status = document.getElementById("status"), show = document.getElementById("show");
+  show.addEventListener("click", () => { ta.hidden = !ta.hidden; show.setAttribute("aria-expanded", String(!ta.hidden)); show.textContent = ta.hidden ? "Visa text" : "Dölj text"; });
+  document.getElementById("copy").addEventListener("click", () => {
+    if (!ta.value) { status.textContent = "Välj minst ett läsår först."; return; }
+    const p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(ta.value) : Promise.reject();
+    p.then(() => { status.textContent = "Kopierat. Klistra in i en textfil och spara som .ics."; })
+     .catch(() => { ta.hidden = false; show.textContent = "Dölj text"; ta.focus(); ta.select(); status.textContent = "Kopiering stöds inte här. Texten är markerad, kopiera med Ctrl+C."; });
+  });
+  }
+  render();
+})();
+</script>
